@@ -7,9 +7,9 @@ export default function Home() {
       <h1>HOME PAGE</h1>
 
       <div>
-        <Link href="/produtos/tenis">TENIS</Link> | 
-        <Link href={"/produtos/produto/tenis-preto"}>TENIS PRETO</Link> |
-        <Link href="/produtos/produto/camisa-xadrez">Camisa-X</Link>
+        <Link href="/produtos/estaticas/tenis">TENIS</Link> | 
+        <Link href={"/produtos/dinamicas/estranho/tenis-azul"}>TENIS PRETO</Link> |
+        <Link href="/produtos/dinamicas/vestuario/camisa-xadrez">Camisa-X</Link>
       </div>
     </>
   )
