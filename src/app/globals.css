@@ -2,5 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+@layer components{
+    .linkCabecalho{
+        @apply hover:bg-lime-400 transition-all duration-500 ease-out rounded
+    }
+}
