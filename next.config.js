@@ -3,14 +3,13 @@ const nextConfig = {}
 
 module.exports = {
     images:{
-        remotePatterns:[
+        remotePatterns: [
             {
                 protocol: 'https',
                 hostname: 'images.pexels.com',
                 port: '',
-                pathname: '/photos/**'
+                pathname: '/photos/**',
             },
         ],
     },
 }
-
