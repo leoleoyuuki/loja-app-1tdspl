@@ -6,7 +6,7 @@ export default function LoginUsers() {
 
     //criando um useState para armazenar o objeto do usuario preenchido no formulario , e que sera enviado para a base de dados de validacao (email e senha)
     const [usuario,setUsuario] = useState({
-        info: "",
+        info: "login",
         email: "",
         senha: "",
     });
@@ -30,6 +30,7 @@ export default function LoginUsers() {
         });
 
         const resultado = await resposta.json();
+        console.log(resultado)
 
         if(resultado.status){
             window.location.href = "/";
