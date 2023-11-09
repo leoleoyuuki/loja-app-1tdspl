@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @layer components{
     .linkCabecalho{
         @apply hover:bg-lime-400 transition-all duration-500 ease-out rounded
@@ -19,4 +25,16 @@
             @apply flex flex-row flex-wrap justify-center;
         }
     }
+
+        /* .login-user{
+            @apply text-black h-16 w-full bottom-0;
+        
+            & form{
+                @apply flex flex-row flex-wrap justify-center bg-slate-800 rounded m-auto w-auto;
+
+                & div{
+                    @apply text-white m-10;
+                }
+            }
+        } */
 }
