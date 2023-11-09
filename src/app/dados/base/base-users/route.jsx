@@ -1,16 +1,32 @@
 import {promises as fs} from 'fs';
 import { NextResponse } from 'next/server';
 
-export async function POST(request, response){
-
-    // RECEBENDO O ARQUIVO JSON.
+const handleLogin = async(email,senha)=>{
+    //Recebendo o arquivo JSON
     const file = await fs.readFile(process.cwd() + "/src/app/dados/base/db.json", "utf8");
 
-    //CONVERTER O ARQUIVO PARA PODER REALIZAR O TRABALHO.
+    //converter o arquivo para JSON para poder realizar o trabalho
     const dados = await JSON.parse(file);
+    
+    //Logica de validacao
+    const user = await dados.usuarios.find((ObjUsuario)=>( ObjUsuario.email === email && ObjUsuario.senha === senha));
+    
+    return user;
+        
+}
+
+
+
+export async function POST(request, response){
+
 
     // CAPTURAR O REQUEST E TRATAR OS DADOS:
-    // const dadosDoRequest = await request.json();
+    // Desestruturar o request.(Destructuring)
+    const {info,email, senha} = await request.json();
+
+
+    // Chamar a funvao de validacao
+    const user = await handleLogin(email, senha);
 
 
     //Exercicio 
@@ -23,7 +39,22 @@ export async function POST(request, response){
     //Crie uma view para realizar esta validacao, com CSS/TAILWIND + icones[0,5 pt na GS]
     //GRUPO\
 
-    console.log(dadosDoRequest)
+    //Estrutura para definir o tipo de requisicao
+    switch(info){
+        case "login": 
+        
+            if(user){
+                return NextResponse.json({"status": true});
+            }else{
+                return NextResponse.json({"status": false});
+            }
+            case "cadastro":
+                break;
+            default:
+                break;
+    }
+
+
     // GERANDO UMA RSPOSTA : RESPONSE.
-    return NextResponse.json({"status": true});
+    return NextResponse.json({"status": false});
 }
